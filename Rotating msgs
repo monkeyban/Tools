@@ -1,0 +1,14 @@
+import socket
+import time
+ip = "ip1"
+port = ["port1", "port2", "port3"]
+rcon = "rcon"
+while(True):
+    for r in range(len(port)):
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sock.settimeout(1)
+        sock.connect((ip,int(port[r])))
+        sock.send("\xFF\xFF\xFF\xFFrcon %s say ^3Great servers, Great people! ^5pandora-hosting.net ^2.25 ^3cents a slot.." % rcon)
+        print "Sending message"
+        sock.close()
+    time.sleep(90)
